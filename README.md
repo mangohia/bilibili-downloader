@@ -126,6 +126,10 @@ pythonw gui.py
 
 本项目仅用于个人学习与技术研究，请勿用于侵犯版权、批量抓取或任何商业用途。下载内容请在 24 小时内删除或仅作个人备份。因使用本项目产生的一切后果由使用者自行承担。
 
+## 致谢
+
+- 本项目基于 [tyokyo320/bilibili-downloader](https://github.com/tyokyo320/bilibili-downloader)（MIT License）的解析思路与代码基础，在其上增加了桌面 GUI、清晰度选择与无损合并等改动，原始版权声明见 [LICENSE](LICENSE)。
+
 ## License
 
 见 [LICENSE](LICENSE)。
