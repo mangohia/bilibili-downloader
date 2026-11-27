@@ -23,7 +23,8 @@ bilibili-downloader/
 ├─ gui.py                      # 桌面版入口（tkinter）
 ├─ config.py                   # Cookie 与链接配置
 ├─ requirements.txt            # 依赖
-├─ 启动下载器.bat              # Windows 双击启动 GUI
+├─ 启动下载器.bat              # Windows 双击启动 GUI（无控制台，出错不显示）
+├─ 启动下载器-调试.bat         # 同上，但保留控制台窗口，出错能看到 traceback
 ├─ models/
 │  ├─ category.py              # 视频分类常量
 │  └─ video.py                 # 视频对象（标题/画质/直链）
@@ -82,6 +83,15 @@ Windows 双击 `启动下载器.bat`，或：
 ```bash
 pythonw gui.py
 ```
+
+启动器会按顺序找解释器：`pyw -3`（Windows py 启动器）→ `pythonw` → `python`，优先用 py 启动器，避免 PATH 里存在多个 Python 时选到缺少 tkinter 的那个。
+
+**两个启动器的区别**
+
+- `启动下载器.bat`：用 `pythonw`，不弹黑色控制台，日常用这个。代价是启动阶段一旦报错（比如缺 tkinter），窗口不会出现，也不会告诉你原因。
+- `启动下载器-调试.bat`：用 `python` 并保留控制台，程序报错会把完整 traceback 打在里面，最后还会显示 `exit code` 并停住等你按键。怀疑启动失败、闪退时用它。
+
+同理，命令行里 `pythonw gui.py` 报错是看不见的，排错请用 `python gui.py`。
 
 窗口里：
 
