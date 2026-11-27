@@ -1,15 +1,20 @@
 @echo off
-chcp 65001 >nul
 cd /d "%~dp0"
+where pyw >nul 2>nul
+if %errorlevel%==0 goto usepyw
 where pythonw >nul 2>nul
-if %errorlevel%==0 (
-    start "" pythonw gui.py
-) else (
-    where python >nul 2>nul
-    if %errorlevel%==0 (
-        start "" python gui.py
-    ) else (
-        echo 未找到 Python，请先安装 Python 3.8+ 并勾选 Add python.exe to PATH
-        pause
-    )
-)
+if %errorlevel%==0 goto usew
+where python >nul 2>nul
+if %errorlevel%==0 goto usec
+echo Python 3.8+ not found. Install it and tick "Add python.exe to PATH".
+pause
+exit /b
+:usepyw
+start "" pyw -3 gui.py
+exit /b
+:usew
+start "" pythonw gui.py
+exit /b
+:usec
+start "" python gui.py
+exit /b

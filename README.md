@@ -101,6 +101,8 @@ pythonw gui.py
 | 合并后没有声音 | 检查 ffmpeg 是否在 PATH 中（`ffmpeg -version`） |
 | 下载中断 / 卡住 | 网络或 B 站风控，稍后重试；也可换 cookie |
 | 文件名带奇怪字符 | 标题中的非法字符会自动清理 |
+| 双击 `启动下载器.bat` 没反应 | 改用 `启动下载器-调试.bat` 看具体报错；或命令行跑 `pythonw gui.py`；确认所用 Python 带 tkinter（`python -c "import tkinter"`） |
+| git 里中文文件名显示成八进制 | `git config --global core.quotepath false` |
 
 ## 支持情况
 
