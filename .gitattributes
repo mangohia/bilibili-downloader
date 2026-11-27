@@ -1,0 +1,5 @@
+# 统一换行，避免 .bat 在 Windows 上被 LF 破坏
+* text=auto
+*.bat text eol=crlf
+*.png binary
+*.gif binary
